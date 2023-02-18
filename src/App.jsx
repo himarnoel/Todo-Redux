@@ -7,7 +7,7 @@ function App() {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
-  
+
   // Makes the array available
   const todos = useSelector((state) => state.todos);
 
@@ -16,6 +16,13 @@ function App() {
     // action only receive one parameter, which is payload
     dispatch(addTodo(text));
     setText("");
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      dispatch(addTodo(text));
+      setText("");
+    }
   };
   return (
     <div className="px-10 bg-blue-200 py-10 flex-col flex items-center justify-center">
@@ -35,6 +42,7 @@ function App() {
             placeholder="Todo"
             value={text}
             onChange={(e) => setText(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"

@@ -15,5 +15,7 @@ export const todoSlice = createSlice({
   },
 });
 //For dispact to make all actions available
-export const {addTodo}=todoSlice.actions;
+export const { addTodo } = todoSlice.actions;
 
+//to configure store
+export default todoSlice.reducer;

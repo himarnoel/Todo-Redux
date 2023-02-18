@@ -7,8 +7,9 @@ function App() {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
+  
+  // Makes the array available
   const todos = useSelector((state) => state.todos);
-
 
   const addTodoHandler = (event) => {
     // update the state here using addTodo action
@@ -45,7 +46,7 @@ function App() {
         </div>
       </div>
       <div>
-        {todos.map((todo,i) => (
+        {todos.map((todo, i) => (
           <div
             key={i}
             className="w-64 rounded-xl h-10 mt-5   shadow-sm bg-blue-500 text-white flex justify-center items-center"
